@@ -10,13 +10,12 @@
 id: ${book.id}
 <br>
 name: ${book.name}
-<br>
 author: ${book.author}
 <br>
 title: ${book.title}
 <br>
 stock: ${book.stock}
 <br>
-
+<input type="button" value="Add to Cart" onclick="window.location.href='cart?command=ADD_TO_CART&bookId=${book.id}'"/>
 </body>
 </html>

@@ -52,6 +52,7 @@ public class HomeServlet extends HttpServlet {
 		} else {
 			bookList = bookService.getBooksByCategoryId(Integer.parseInt(categoryId));
 		}
+		request.setAttribute("categoryList", categoryList);
 		
 		//bookList by search
 		String searchKey = request.getParameter("searchBookInput");
@@ -61,17 +62,19 @@ public class HomeServlet extends HttpServlet {
 		
 		System.out.println("searchKey: " + searchKey);
 		
-		if (searchKey != null && !searchKey.isEmpty()) {
+		if (searchKey != null) {
             bookListBySearch = bookService.getBooksBySearch(searchKey);
             request.setAttribute("searchKey", searchKey);
             request.setAttribute("hideBookList", true);
         }
 
-		
-		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-		request.setAttribute("categoryList", categoryList);
-		request.setAttribute("bookList", bookList);
 		request.setAttribute("bookListBySearch", bookListBySearch);
+		
+		
+		//RequestDispatcher
+		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+		request.setAttribute("bookList", bookList);
+		
 	
 		
 		rd.forward(request, response);
