@@ -15,7 +15,7 @@
 	<hr>
 	<ul>
 		<c:forEach var="book" items="${booklist}">
-			<li>${book.name} - ${book.id} - ${book.categoryId}</li>
+			<li>${book.name} - ${book.id} - ${book.categoryId} - ${book.price}</li>
 		</c:forEach>
 	</ul>
 </body>

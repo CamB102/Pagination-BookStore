@@ -58,9 +58,7 @@ public class HomeServlet extends HttpServlet {
 		String searchKey = request.getParameter("searchBookInput");
 		
 		List<Book> bookListBySearch = new ArrayList<Book>();
-		System.out.println("searchBookInput: " + request.getParameter("searchBookInput"));
-		
-		System.out.println("searchKey: " + searchKey);
+	
 		
 		if (searchKey != null) {
             bookListBySearch = bookService.getBooksBySearch(searchKey);

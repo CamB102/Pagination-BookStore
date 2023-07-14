@@ -16,6 +16,8 @@ title: ${book.title}
 <br>
 stock: ${book.stock}
 <br>
+price: $${book.price}
+<br>
 <input type="button" value="Add to Cart" onclick="window.location.href='cart?command=ADD_TO_CART&bookId=${book.id}'"/>
 </body>
 </html>

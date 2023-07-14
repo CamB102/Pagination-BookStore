@@ -39,9 +39,10 @@ public class BookService {
 				int stock = rs.getInt("stock");
 				String author = rs.getString("author");
 				String title = rs.getString("title");
+				double price = rs.getDouble("price");
 				
 
-				book = new Book(id, name, categoryId1, author, title, stock);
+				book = new Book(id, name, categoryId1, author, title, stock, price);
 				list.add(book);
 			}
 			// -> if exist -> return User(id, user,password, status)
@@ -90,9 +91,13 @@ public List<Book> getBooksByName(String bookName) throws SQLException {
 			int stock = rs.getInt("stock");
 			String author = rs.getString("author");
 			String title = rs.getString("title");
+			double price = rs.getDouble("price");
 			
 
-			book = new Book(id, name, categoryId, author, title, stock);
+			book = new Book(id, name, categoryId, author, title, stock, price);
+			
+
+			
 			list.add(book);
 		}
 		// -> if exist -> return User(id, user,password, status)
@@ -138,9 +143,11 @@ public List<Book> getAllBooks() throws SQLException {
 			int categoryId = rs.getInt("category_id");
 			int stock = rs.getInt("stock");
 			String author = rs.getString("author");
+			double price = rs.getDouble("price");
 			String title = rs.getString("title");
+			
 
-			book = new Book(id, name, categoryId, title, author, stock);
+			book = new Book(id, name, categoryId, title, author, stock, price);
 			list.add(book);
 		}
 		// -> if exist -> return User(id, user,password, status)
@@ -188,10 +195,12 @@ public Book getBookDetails(int bookId) throws SQLException {
 			int categoryId = rs.getInt("category_id");
 			int stock = rs.getInt("stock");
 			String author = rs.getString("author");
+			double price = rs.getDouble("price");
 			String title = rs.getString("title");
 			
+			
 
-			book = new Book(id, name, categoryId, author, title, stock);
+			book = new Book(id, name, categoryId, author, title, stock, price);
 			list.add(book);
 		}
 		// -> if exist -> return User(id, user,password, status)
@@ -238,10 +247,12 @@ public List<Book> getBooksBySearch(String bookName) throws SQLException {
 			int categoryId = rs.getInt("category_id");
 			int stock = rs.getInt("stock");
 			String author = rs.getString("author");
+			double price = rs.getDouble("price");
 			String title = rs.getString("title");
 			
+			
 
-			book = new Book(id, name, categoryId, author, title, stock);
+			book = new Book(id, name, categoryId, author, title, stock, price);
 			list.add(book);
 		}
 		// -> if exist -> return User(id, user,password, status)
@@ -287,9 +298,12 @@ public Book getBookPutInCart(int bookId) throws SQLException {
 			int categoryId = rs.getInt("category_id");
 			int stock = rs.getInt("stock");
 			String author = rs.getString("author");
+			double price = rs.getDouble("price");
 			String title = rs.getString("title");
+			
+			
 
-			book = new Book(id, name, categoryId, title, author, stock);
+			book = new Book(id, name, categoryId, author, title, stock, price);
 			list.add(book);
 		}
 		// -> if exist -> return User(id, user,password, status)

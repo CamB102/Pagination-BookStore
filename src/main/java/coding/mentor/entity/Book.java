@@ -7,10 +7,11 @@ public class Book {
 	private String title;
 	private String author;
 	private int stock;
+	private double price; 
 	
 	
 	
-	public Book(int id, String name, int categoryId, String title, String author, int stock) {
+	public Book(int id, String name, int categoryId, String title, String author, int stock, double price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -18,6 +19,15 @@ public class Book {
 		this.title = title;
 		this.author = author;
 		this.stock = stock;
+		this.price = price;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public String getTitle() {

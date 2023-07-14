@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 HttpSession session = request.getSession(false);
                 session.setAttribute("name", user.getName());
+                session.setAttribute("userId", user.getId());
                 response.sendRedirect("home");
             }
         } catch (Exception e) {

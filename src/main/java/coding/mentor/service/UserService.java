@@ -68,12 +68,12 @@ public class UserService {
 			rs =ps.executeQuery();
 			
 			if (rs.next()) {
-				int id = rs.getInt("id");
+				int userId = rs.getInt("id");
 				String userName = rs.getString("name");
 				String email = rs.getString("email");
 				String passWord = rs.getString("password");
 				
-				user = new User (id, userName, email, passWord);
+				user = new User (userId, userName, email, passWord);
 			}else {
 				return null;
 			}
