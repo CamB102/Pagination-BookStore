@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -46,6 +47,28 @@
 .right .h4 {
 	display: inline-block;
 }
+
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+	border-radius: 5px;
+}
 </style>
 </head>
 <body>
@@ -67,7 +90,7 @@
 				<h4>Hi! ${sessionScope.name}</h4>
 				<br>
 			</c:if>
-			
+
 			<a href="cart?command=VIEW_CART">Cart(${empty sessionScope.cart ? 0 : sessionScope.cart.size()})</a>
 		</div>
 	</div>
@@ -91,16 +114,24 @@
 </style>
 			</c:if>
 			<div class="book-list">
-				<c:if test="${empty bookList}">
+				<c:if test="${empty bookListInAPage}">
 					No Book
 				</c:if>
-				<c:if test="${not empty bookList }">
+				<c:if test="${not empty bookListInAPage }">
 					<ul>
-						<c:forEach var="book" items="${bookList}">
+						<c:forEach var="book" items="${bookListInAPage}">
 							<a href="book?bookId=${book.id}">
 								<li>${book.name}</li>
 							</a>
 						</c:forEach>
+						<br>
+						<br>
+						<div class="pagination">
+							<c:forEach var="pageNumber" begin="1" end="${totalPages}">
+								<a href="home?page=${pageNumber}"
+									class="${pageNumber == currentPage ? 'active' : ''}">${pageNumber}</a>
+							</c:forEach>
+						</div>
 					</ul>
 				</c:if>
 			</div>

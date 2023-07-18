@@ -68,12 +68,30 @@ public class HomeServlet extends HttpServlet {
 
 		request.setAttribute("bookListBySearch", bookListBySearch);
 		
+		//Paging
+		int booksPerPage = 3;
+		int currentPage = 1;
+		String pageParam = request.getParameter("page");
+		if (pageParam != null) {
+			currentPage = Integer.parseInt(pageParam);
+		}
+		
+		int totalPages =  bookService.calculateTotalPages(booksPerPage);
+
+		List<Book> bookListInAPage = bookService.pagingBook(currentPage, booksPerPage);
+		
+		
+		
+		request.setAttribute("bookListInAPage", bookListInAPage);
+		request.setAttribute("currentPage", currentPage);
+		request.setAttribute("totalPages", totalPages);
+		
+		
+		
 		
 		//RequestDispatcher
 		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 		request.setAttribute("bookList", bookList);
-		
-	
 		
 		rd.forward(request, response);
 
